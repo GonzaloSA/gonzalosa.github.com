@@ -1,0 +1,28 @@
+body {
+	background:  #444 ;
+	color: #fff;
+}
+#principal{
+	white: 50%;
+	margin: auto;
+	float: center;
+}
+header h2{
+	font-size: 60px;
+	text-align: center;
+	font-family: "Lucida Console", Courier, monospace;
+}
+header p{
+	font-size: 20px;
+	text-align: center;
+	font-family: "Lucida Console", Courier, monospace;
+}
+.contenedor{
+	width=98%;
+	margin=auto;
+}
+
+footer .contenedor{
+	display: flex;
+	flex-wrap: wrap;
+}

@@ -8,17 +8,26 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css">
+		<link rel="stylesheet" href="css/estilosCone.css">
         <style>
         html, body, #map {
-            width: 100%;
-            height: 100%;
+            width: 99%;  
+			height: 91%; 			
             padding: 0;
-            margin: 0;
+            margin: 10px;
         }
         </style>
-        <title></title>
+        <title>Visor de Mapas Procomar</title>
     </head>
     <body>
+		<div id = "principal">
+			<header>				
+				<div class="contenedor" id="logo">											
+					<h2 class="logo.jpg">PROCOMAR</h2>
+					<p>Tus ideas en ingeniería</p>								
+				</div>
+			</header>
+		</div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -133,10 +142,10 @@
         function pop_dr001_est_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ESTRUCTURA'] !== null ? Autolinker.link(String(feature.properties['ESTRUCTURA'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ESTRUCTURA'] !== null ? Autolinker.link(String('ESTRUCTURA: '+feature.properties['ESTRUCTURA'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO_EST'] !== null ? Autolinker.link(String(feature.properties['TIPO_EST'])) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['TIPO_EST'] !== null ? Autolinker.link(String('TIPO: '+feature.properties['TIPO_EST'])) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -239,7 +248,7 @@
         bounds_group.addLayer(layer_dr001_est_1);
         map.addLayer(layer_dr001_est_1);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'dr001_est<br /><table><tr><td style="text-align: center;"><img src="legend/dr001_est_1_CRUCE0.png" /></td><td>CRUCE</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_OPERACION1.png" /></td><td>OPERACION</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_PROTECCION2.png" /></td><td>PROTECCION</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_REFERENCIA3.png" /></td><td>REFERENCIA</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_4.png" /></td><td></td></tr></table>': layer_dr001_est_1,'dr001_par<br /><table><tr><td style="text-align: center;"><img src="legend/dr001_par_0_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_par_0_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_par_0_2.png" /></td><td></td></tr></table>': layer_dr001_par_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'ESTRUCTURAS<br /><table><tr><td style="text-align: center;"><img src="legend/dr001_est_1_CRUCE0.png" /></td><td>CRUCE</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_OPERACION1.png" /></td><td>OPERACION</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_PROTECCION2.png" /></td><td>PROTECCION</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_REFERENCIA3.png" /></td><td>REFERENCIA</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_est_1_4.png" /></td><td></td></tr></table>': layer_dr001_est_1,'PARCELAS<br /><table><tr><td style="text-align: center;"><img src="legend/dr001_par_0_10.png" /></td><td>1</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_par_0_21.png" /></td><td>2</td></tr><tr><td style="text-align: center;"><img src="legend/dr001_par_0_2.png" /></td><td></td></tr></table>': layer_dr001_par_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
